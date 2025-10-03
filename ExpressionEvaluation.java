@@ -11,14 +11,14 @@ public class ExpressionEvaluation {
             if (Character.isDigit(currentChar)) {
                 StringBuilder numString = new StringBuilder();
 
-                for (int k = i; Character.isDigit(expression.charAt(k)); k++){
+                int k = i;
 
-                    currentChar = expression.charAt(k);
-
-                    numString.append(currentChar);
-
-                    i = k;
+                while (k < expression.length() && Character.isDigit(expression.charAt(k))) {
+                    numString.append(expression.charAt(k));
+                    k++;
                 }
+
+                i = k - 1;
 
                 String digit = String.valueOf(numString);
                 result.append(digit);
